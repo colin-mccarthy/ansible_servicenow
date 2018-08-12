@@ -1,0 +1,143 @@
+---
+# these vars are for authentication
+username: admin
+password: Redhat1!
+instance: devXXXXX
+
+
+
+#this state var refers to absent or present not the state in the data portion of the task
+
+state: present
+
+
+#table var must be specified to determing what type of ticket to open/close ie.. change_request, incident, etc..
+
+cr_authorize: -4
+cr_scheduled: -2
+cr_implement: -1
+cr_review: 0
+cr_closed: 3
+
+inc_in_progress: 2
+inc_on_hold: 4
+inc_resolved: 6
+inc_closed: 7
+caller_id: 'System Administrator'
+
+
+#
+#EXAMPLE
+#
+#  vars:
+#    severity: 2
+#    priority: 2
+#    short_description: "Colin's Ticket"
+#    category: network
+#    table: change_request
+#    comments: "{{ comments }}"
+
+
+
+
+
+
+#these are the possible vars for the data portion of a change_request ticket
+#any active vars are added to your playbook as shown in EXAMPLE
+#
+#active:
+#activity_due:
+#additional_assignee_list:
+#approval": "not requested:
+#approval_history:
+#approval_set:
+#assigned_to:
+#assignment_group:
+#backout_plan:
+#business_duration:
+#business_service:
+#cab_date:
+#cab_delegate
+#cab_recommendation
+#cab_required
+#calendar_duration:
+#category:
+#change_plan:
+#close_code:
+#close_notes:
+#closed_at:
+#closed_by:
+#cmdb_ci:
+#comments:
+#comments_and_work_notes:
+#company:
+#conflict_last_run:
+#conflict_status:
+#contact_type:
+#correlation_display:
+#correlation_id:
+#delivery_plan:
+#delivery_task:
+#description:
+#due_date:
+#end_date:
+#escalation:
+#expected_start:
+#follow_up:
+#group_list:
+#impact:
+#implementation_plan:
+#justification:
+#knowledge:
+#location:
+#made_sla:
+#number:
+#on_hold:
+#on_hold_reason:
+#on_hold_task
+#opened_at:
+#opened_by:
+#order:
+#outside_maintenance_schedule:
+#parent:
+#phase:
+#phase_state:
+##priority:
+#production_system:
+#reason:
+#reassignment_count:
+#requested_by:
+#requested_by_date:
+#review_comments:
+#review_date:
+#review_status:
+#risk:
+#risk_impact_analysis:
+#scope:
+#short_description:
+#sla_due:
+#start_date:
+#state:
+#std_change_producer_version:
+#sys_class_name:
+#sys_created_by:
+#sys_created_on:
+#sys_domain:
+#sys_domain_path:
+#sys_id:
+#sys_mod_count:
+#sys_tags:
+#sys_updated_by:
+#sys_updated_on:
+#test_plan:
+#time_worked:
+#type:
+#upon_approval:
+#upon_reject:
+#urgency:
+#user_input:
+#watch_list:
+#work_end:
+#work_notes:
+#work_notes_list:
+#work_start:
