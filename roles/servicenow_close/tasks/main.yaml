@@ -1,0 +1,95 @@
+---
+# tasks file for servicenow_close
+
+ - block:
+
+   - name: change_request task 1
+     snow_record:
+       username: "{{ username }}"
+       password: "{{ password }}"
+       instance: "{{ instance }}"
+       state: "{{ state }}"
+       number: "{{ new_ticket.record.number  }}"
+       data:
+         state: "{{ cr_authorize }}"
+       table: "{{ table }}"
+
+
+   - name: change_request task 2
+     snow_record:
+       username: "{{ username }}"
+       password: "{{ password }}"
+       instance: "{{ instance }}"
+       state: "{{ state }}"
+       number: "{{ new_ticket.record.number  }}"
+       data:
+         state: "{{ cr_scheduled }}"
+       table: "{{ table }}"
+
+
+   - name: change_request task 3
+     snow_record:
+       username: "{{ username }}"
+       password: "{{ password }}"
+       instance: "{{ instance }}"
+       state: "{{ state }}"
+       number: "{{ new_ticket.record.number  }}"
+       data:
+         state: "{{ cr_implement }}"
+       table: "{{ table }}"
+
+
+   - name: change_request task 4
+     snow_record:
+       username: "{{ username }}"
+       password: "{{ password }}"
+       instance: "{{ instance }}"
+       state: "{{ state }}"
+       number: "{{ new_ticket.record.number  }}"
+       data:
+         state: "{{ cr_review }}"
+       table: "{{ table }}"
+
+
+   - name: change_request Closed
+     snow_record:
+       username: "{{ username }}"
+       password: "{{ password }}"
+       instance: "{{ instance }}"
+       state: "{{ state }}"
+       number: "{{ new_ticket.record.number  }}"
+       data:
+         state: "{{ cr_closed }}"
+       table: "{{ table }}"
+
+   when: table == "change_request"
+
+
+
+ - block:
+
+   - name: incident In Progress
+     snow_record:
+       username: "{{ username }}"
+       password: "{{ password }}"
+       instance: "{{ instance }}"
+       state: "{{ state }}"
+       number: "{{ new_ticket.record.number  }}"
+       data:
+         state: "{{ inc_in_progress }}"
+         caller_id: "{{ caller_id }}"
+       table: "{{ table }}"
+
+  
+   - name: incident Resolved
+     snow_record:
+       username: "{{ username }}"
+       password: "{{ password }}"
+       instance: "{{ instance }}"
+       state: "{{ state }}"
+       number: "{{ new_ticket.record.number  }}"
+       data:
+         state: "{{ inc_resolved }}"
+       table: "{{ table }}"
+  
+   when: table == "incident"
