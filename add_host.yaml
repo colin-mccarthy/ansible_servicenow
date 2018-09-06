@@ -1,0 +1,23 @@
+---
+- name: create ticket with notes
+  hosts: ios
+  gather_facts: no
+  connection: network_cli
+
+
+  tasks:
+  - name: include vars
+    include_vars: incident_vars.yml
+
+
+
+  - name: get results
+    snow_record:
+      username: "{{ username }}"
+      password: "{{ password }}'
+      instance: "{{ instance }}"
+      state: present
+      data:
+    register: results
+    
+  - debug: var=results  
