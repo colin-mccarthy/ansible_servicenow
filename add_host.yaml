@@ -1,8 +1,8 @@
 ---
-- name: create ticket with notes
+- name: test for adding host to cmdb
   hosts: ios
   gather_facts: no
-  connection: network_cli
+  connection: local
 
 
   tasks:
