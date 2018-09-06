@@ -1,6 +1,6 @@
 ---
 - name: test for adding host to cmdb
-  hosts: ios
+  hosts: localhost
   gather_facts: no
   connection: local
 
